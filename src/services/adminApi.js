@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const API = axios.create({
-  baseURL: "http://localhost:5000/api",
+  baseURL: "https://student-enrollment-backend-8xh0.onrender.com/api",
 });
 
 API.interceptors.request.use((req) => {
@@ -12,12 +12,11 @@ API.interceptors.request.use((req) => {
   return req;
 });
 
-// 🔹 Fetch with filters
 export const fetchStudents = (params) =>
   API.get("/students", { params });
 
 export const exportStudents = (params) =>
   API.get("/students/export", {
     params,
-    responseType: "blob", // IMPORTANT
+    responseType: "blob",
   });
